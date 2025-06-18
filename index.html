@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aniversário do Meu Pai</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        margin: 0;
+        h1 {
+          color: #333;
+          font-size: 35px;
+          margin-bottom: 20px;
+          word-break: break-word;
+        }
+
+        img {
+          width: 90%;
+          max-width: 350px;
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          margin-bottom: 20px;
+        }
+      }
+      p {
+        font-size: 20px;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        max-width: 500px;
+        margin: auto;
+        display: none;
+      }
+
+      .carrossel-container {
+        position: relative;
+        max-width: 700px;
+        margin: 50px auto;
+        display: none;
+      }
+      .carrossel {
+        display: none;
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 16px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        user-select: none;
+        font-size: 30px;
+        line-height: 1;
+      }
+      .prev {
+        left: -50px;
+      }
+      .next {
+        right: -50px;
+      }
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      #tela-inicial {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #caixa-presente {
+        width: 200px;
+        height: 200px;
+        background: url("https://cdn-icons-png.flaticon.com/512/616/616408.png")
+          no-repeat center/contain;
+        margin-bottom: 20px;
+        cursor: pointer;
+        filter: drop-shadow(0 0 5px #888);
+        transition: transform 0.3s ease;
+      }
+      #caixa-presente:hover {
+        transform: scale(1.1);
+      }
+      #btn-abrir {
+        padding: 12px 25px;
+        font-size: 18px;
+        background-color: #007bff;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5);
+        transition: background-color 0.3s ease;
+      }
+      #btn-abrir:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Música de fundo -->
+    <audio id="musica-fundo" loop>
+      <source src="musica.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <!-- Tela inicial -->
+    <div id="tela-inicial">
+      <img
+        src="img/caixa.png"
+        alt="Caixa Presente"
+        title="Clique para abrir o presente"
+      />
+      <button id="btn-abrir">🎁 ABRIR PRESENTE 🎁</button>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="card" id="conteudo-principal">
+      <h1>🎉Feliz Aniversário, Pai!🎉</h1>
+      <img src="img/pai.jpeg" alt="Pai" />
+      <p>
+        Hoje é um dia muito especial, dia de celebrar a vida de um homem
+        incrível, batalhador, exemplo de força, caráter e amor. É lindo ver o
+        agir de Deus na sua vida, como Ele tem te abençoado e te dado forças
+        para superar todos os desafios. Sua bondade e esforço são qualidades que
+        admiro profundamente. Sou muito grato por tudo que você fez e continua
+        fazendo por mim. Você é meu herói, meu guia e meu maior apoio. Sua
+        sabedoria e dedicação são inspirações diárias para mim, e eu não poderia
+        pedir um pai melhor. Que Deus continue te abençoando, te enchendo de
+        saúde, paz, alegrias e muitas conquistas. Que nunca falte amor, fé e
+        felicidade na sua vida. Saiba que você é muito amado e admirado por
+        todos ao seu redor. Aproveite muito o seu dia, porque você merece o
+        melhor desse mundo! Feliz aniversário, pai!
+      </p>
+      <p>TE AMO!!!! ❤️🥳🍰</p>
+    </div>
+
+    <!-- Carrossel -->
+    <div class="carrossel-container" id="carrossel">
+      <img class="carrossel" src="img/1.jpeg" alt="Foto 1" />
+      <img class="carrossel" src="img/2.jpeg" alt="Foto 2" />
+      <img class="carrossel" src="img/3.jpeg" alt="Foto 3" />
+      <img class="carrossel" src="img/4.jpeg" alt="Foto 4" />
+      <img class="carrossel" src="img/5.jpeg" alt="Foto 5" />
+      <img class="carrossel" src="img/6.jpeg" alt="Foto 6" />
+      <img class="carrossel" src="img/7.jpeg" alt="Foto 7" />
+      <img class="carrossel" src="img/8.jpeg" alt="Foto 8" />
+      <img class="carrossel" src="img/9.jpeg" alt="Foto 9" />
+      <img class="carrossel" src="img/10.jpeg" alt="Foto 10" />
+
+      <a class="prev" onclick="mudarSlide(-1)">❮</a>
+      <a class="next" onclick="mudarSlide(1)">❯</a>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+      let slideIndex = 0;
+      let timer;
+
+      function mostrarSlides() {
+        let i;
+        let slides = document.getElementsByClassName("carrossel");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+
+        timer = setTimeout(mostrarSlides, 2000);
+      }
+
+      function mudarSlide(n) {
+        clearTimeout(timer);
+        slideIndex += n;
+        let slides = document.getElementsByClassName("carrossel");
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        if (slideIndex < 1) {
+          slideIndex = slides.length;
+        }
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+
+        timer = setTimeout(mostrarSlides, 2000);
+      }
+
+      function soltarConfete() {
+        const duration = 3 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = {
+          startVelocity: 30,
+          spread: 360,
+          ticks: 60,
+          zIndex: 9999,
+        };
+
+        const interval = setInterval(function () {
+          const timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          const particleCount = 50 * (timeLeft / duration);
+          confetti(
+            Object.assign({}, defaults, {
+              particleCount,
+              origin: { x: Math.random(), y: Math.random() - 0.2 },
+            })
+          );
+        }, 250);
+      }
+
+      function abrirPresente() {
+        document.getElementById("tela-inicial").style.display = "none";
+        document.getElementById("conteudo-principal").style.display = "block";
+        document.getElementById("carrossel").style.display = "block";
+        mostrarSlides();
+
+        const audio = document.getElementById("musica-fundo");
+        audio.play().catch((error) => {
+          console.warn(
+            "Não foi possível reproduzir o áudio automaticamente:",
+            error
+          );
+        });
+
+        soltarConfete();
+      }
+
+      document
+        .getElementById("btn-abrir")
+        .addEventListener("click", abrirPresente);
+
+      document
+        .getElementById("caixa-presente")
+        .addEventListener("click", abrirPresente);
+    </script>
+
+    <footer
+      style="
+        color: rgb(0, 0, 0);
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 50px;
+      "
+    >
+      Feito com ❤️ por Tiago Pereira para o meu pai, no dia 18/06/2025
+    </footer>
+  </body>
+</html>

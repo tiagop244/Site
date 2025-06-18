@@ -1,0 +1,1 @@
+setTimeout(mostrarSlides, 2000); // Muda a cada 2 segundos
